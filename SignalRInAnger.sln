@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Auth", "Auth\Auth.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "DependencyInjection\DependencyInjection.csproj", "{AFCAF70B-807B-42AD-B654-49FB4A853CBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRefreshOnUpdate", "AutoRefreshOnUpdate\AutoRefreshOnUpdate.csproj", "{84B7569E-D191-40ED-B790-8C5F0DEAACAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AFCAF70B-807B-42AD-B654-49FB4A853CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCAF70B-807B-42AD-B654-49FB4A853CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCAF70B-807B-42AD-B654-49FB4A853CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

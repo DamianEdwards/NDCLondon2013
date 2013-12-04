@@ -20,6 +20,7 @@ namespace DependencyInjection
 
             var resolver = new NinjectDependencyResolver(kernel);
 
+            // This is kind gross but we'll improve it in the future
             kernel.Bind<IHubContext>()
                   .ToConstant(resolver.Resolve<IConnectionManager>()
                                       .GetHubContext<Clock>())

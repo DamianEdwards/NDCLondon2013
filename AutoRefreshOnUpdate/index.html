@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    Running application version <span id="version"></span>
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.0.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script>
+        $(function () {
+            var connectivity = $.connection.connectivity;
+
+            connectivity.client.updateVersion = function (newVersion) {
+                alert('A new version of the application is available! (' + newVersion + ')');
+
+                document.location = document.location;
+            };
+
+            $.get('/version').done(function (version) {
+                $('#version').html(version);
+
+                $.connection.hub.logging = true;
+                $.connection.hub.qs = { version: version };
+
+                $.connection.hub.disconnected(function () {
+                    setTimeout(function () {
+                        $.connection.hub.start();
+                    }, 1000);
+                });
+
+                $.connection.hub.start();
+            });
+        });
+    </script>
+
+</body>
+</html>
