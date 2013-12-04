@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection", "Depe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoRefreshOnUpdate", "AutoRefreshOnUpdate\AutoRefreshOnUpdate.csproj", "{84B7569E-D191-40ED-B790-8C5F0DEAACAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRAndNancy", "SignalRAndNancy\SignalRAndNancy.csproj", "{FAFE4E9A-A268-4CE8-BCE4-1FBF31608920}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84B7569E-D191-40ED-B790-8C5F0DEAACAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFE4E9A-A268-4CE8-BCE4-1FBF31608920}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFE4E9A-A268-4CE8-BCE4-1FBF31608920}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFE4E9A-A268-4CE8-BCE4-1FBF31608920}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFE4E9A-A268-4CE8-BCE4-1FBF31608920}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
