@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.0.js"></script>
+    <script src="/signalr/js"></script>
+    <script>
+        $.connection.authHub.client.helloWorld = function (msg) {
+            $("body").append(msg);
+        };
+
+        $.connection.hub.start().done(function () {
+            $.connection.authHub.server.doSecretStuff()
+                .done(function () { })
+                .fail(function (err) { throw err });
+        });
+    </script>
+</body>
+</html>
