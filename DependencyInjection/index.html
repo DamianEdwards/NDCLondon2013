@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <input type="button" id="start" value="start" />
+    <input type="button" id="stop" value="stop" />
+    <h1 id="time"></h1>
+
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.0.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script>
+        $(function () {
+            var clock = $.connection.clock;
+
+            clock.client.tick = function (time) {
+                $('#time').html(time);
+            };
+
+            $.connection.hub.logging = true;
+            $.connection.hub.start().done(function () {
+                $('#start').click(function () {
+                    clock.server.start();
+                });
+
+                $('#stop').click(function () {
+                    clock.server.stop();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
