@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Messages from back-end system</title>
+</head>
+<body>
+    <h1>Messages From Back-end System</h1>
+    <ul id="messages"></ul>
+
+    <script src="Scripts/jquery-1.6.4.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.0.js"></script>
+    <script src="/signalr/js"></script>
+    <script>
+        $(function() {
+
+            var hub = $.connection.messageHub;
+
+            hub.client.newMessage = function (message) {
+                $("#messages").append($("<li/>").text(message));
+            };
+
+            $.connection.hub.start();
+
+        });
+    </script>
+</body>
+</html>
