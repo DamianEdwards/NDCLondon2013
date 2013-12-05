@@ -14,7 +14,6 @@
 
         $.connection.hub.start().done(function () {
             $.connection.authHub.server.doSecretStuff()
-                .done(function () { })
                 .fail(function (err) { throw err });
         });
     </script>

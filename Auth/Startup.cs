@@ -20,13 +20,16 @@ namespace WebApplication22
             {
                 map.Run(async context =>
                 {
-                    var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationType);
                     var username = context.Request.Query["username"] ?? "[random]";
+
+                    var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationType);
                     identity.AddClaim(new Claim(ClaimTypes.Name, username));
+                    
                     if (String.Equals(username, "Damian", StringComparison.OrdinalIgnoreCase))
                     {
-                        identity.AddClaim(new Claim(ClaimTypes.Role, "Admin", ClaimValueTypes.String));
+                        identity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
                     }
+
                     context.Authentication.SignIn(identity);
                 });
             });
