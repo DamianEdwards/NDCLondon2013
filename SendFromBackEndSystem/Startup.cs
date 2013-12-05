@@ -14,6 +14,8 @@ namespace SendFromBackEndSystem
     {
         public void Configuration(IAppBuilder app)
         {
+            var hub = GlobalHost.ConnectionManager.GetHubContext<MessageHub>();
+            
             app.Map("/backend", map =>
             {
                 map.Run(async context =>
@@ -25,8 +27,7 @@ namespace SendFromBackEndSystem
                     }
                     dynamic payload = JsonConvert.DeserializeObject(body);
                     string message = payload.message;
-                    
-                    var hub = GlobalHost.ConnectionManager.GetHubContext<MessageHub>();
+
                     hub.Clients.All.newMessage(message);
                 });
             });
