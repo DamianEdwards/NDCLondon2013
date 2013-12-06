@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        #state {
+            width: 20px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="state"></div>
+
+    <script src="Scripts/jquery-1.6.4.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.0.0.min.js"></script>
+    <script src="signalr/hubs"></script>
+    <script>
+        function getQuery(variable) {
+            var query = window.location.search.substring(1),
+                vars = query.split("&"),
+                pair;
+            for (var i = 0; i < vars.length; i++) {
+                pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return unescape(pair[1]);
+                }
+            }
+        }
+
+        $(function () {
+            var userTracking = $.connection.userTracking;
+
+            // Need at least one callback for events to be raised on the hub
+            userTracking.client.void = function () { };
+
+            $.connection.hub.logging = true;
+            $.connection.hub.stateChanged(function (change) {
+                if (change.newState === $.signalR.connectionState.connected) {
+                    $('#state').css('background-color', 'green');
+                }
+                else if (change.newState === $.signalR.connectionState.reconnecting) {
+                    $('#state').css('background-color', 'yellow');
+                }
+                else if (change.newState === $.signalR.connectionState.disconnected) {
+                    $('#state').css('background-color', 'red');
+                }
+            });
+
+            $.connection.hub.disconnected(function () {
+                setTimeout(function () {
+                    $.connection.hub.start();
+                }, 1000);
+            });
+
+            var userName = getQuery('u');
+
+            if (userName) {
+                $.connection.hub.qs = { u: userName }
+            }
+
+            $.connection.hub.start();
+        });
+    </script>
+</body>
+</html>
