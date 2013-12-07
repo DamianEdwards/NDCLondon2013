@@ -10,6 +10,7 @@
     </style>
 </head>
 <body>
+    <h3 id="msg"></h3>
     <div id="state"></div>
 
     <script src="Scripts/jquery-1.6.4.min.js"></script>
@@ -57,9 +58,14 @@
 
             if (userName) {
                 $.connection.hub.qs = { u: userName }
-            }
 
-            $.connection.hub.start();
+                $('#msg').text('Logged in as ' + userName);
+
+                $.connection.hub.start();
+            }
+            else {
+                $('#msg').text('Not logged in. Try adding ?u=username to the url to login as a user. e.g. ?u=John');
+            }
         });
     </script>
 </body>

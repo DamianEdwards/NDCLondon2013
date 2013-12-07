@@ -14,7 +14,7 @@ namespace UserPresence
     {
         public void Configuration(IAppBuilder app)
         {
-            // Authentication
+            // Fake Authentication!! DO NOT USE IN A REAL APPLICATION
             app.Use(async (context, next) =>
             {
                 var userName = context.Request.Query["u"];
